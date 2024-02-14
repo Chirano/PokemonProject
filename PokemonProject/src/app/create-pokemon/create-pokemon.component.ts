@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,26 +9,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-pokemon.component.css']
 })
 export class CreatePokemonComponent {
-  newPokemon!: Pokemon;
-  pokemons: Pokemon[] = [];
+  newPokemon: Pokemon = {
+    id: 0,
+    name: '',
+    height: 0,
+    weight: 0,
+    types: [''],
+    family: ''
+  }
+
+
+  pokemonList: any[] = [];
   pokemonForm: FormGroup | undefined;
 
   constructor(private formBuilder: FormBuilder, private pokemonService: PokemonService) {
 
   }
 
-  onSubmit() {
-    if (this.isValidPokemon(this.newPokemon)) {
-      this.pokemonService.addPokemon(this.newPokemon)
-        .subscribe(() => {
-          console.log('Pokemon added successfully');
-          this.resetPokemon();
-        }, error => {
-          console.error('Error adding pokemon:', error);
-        });
-    } else {
-      console.error('Invalid pokemon. Cannot submit.');
-    }
+  addPokemon(name: string, height: number, weight: number, types: string, family: string): void {
+    if (!name) { return; }
+    this.pokemonService.addPokemon({ name, height, weight, family } as Pokemon)
+      .subscribe(pokemon => {
+        this.pokemonList.push(pokemon);
+      });
   }
 
   isValidPokemon(pokemon: any): boolean {

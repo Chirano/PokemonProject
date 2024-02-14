@@ -4,11 +4,10 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
   selector: '[appColorByType]'
 })
 export class ColorByTypeDirective implements OnInit {
-  @Input('appColorByPokemonType') weight: number | undefined;
-
+  @Input('appTypeBackground') weight?: number;
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
-  ngOnInit() {
+ ngOnInit() {
     let background;
     if (this.weight !== undefined && this.weight !== null) {
       if (this.weight <= 10) {

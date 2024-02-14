@@ -15,7 +15,6 @@ export class PokemonService {
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   pokemonsUrls = 'https://softwium.com/api/pokemons';
-  localpokemonUrl = 'api/pokemons';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -52,14 +51,14 @@ export class PokemonService {
 
 
   addPokemon(pokemon: Pokemon): Observable<Pokemon> {
-    return this.http.post<Pokemon>(this.localpokemonUrl, pokemon, this.httpOptions).pipe(
+    return this.http.post<Pokemon>(this.pokemonsUrls, pokemon, this.httpOptions).pipe(
       tap((newPokemon: Pokemon) => this.log(`added pokemon w/ id=${newPokemon.id}`)),
       catchError(this.handleError<Pokemon>('addPokemon'))
     );
   }
 
   deletePokemon(id: Number): Observable<Pokemon> {
-    const url = `${this.localpokemonUrl}/${id}`;
+    const url = `${this.pokemonsUrls}/${id}`;
 
     return this.http.delete<Pokemon>(url, this.httpOptions).pipe(
       tap(_ => this.log(`delete pokemon w/ id=${id}`)),
@@ -68,7 +67,7 @@ export class PokemonService {
   }
 
   updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
-    return this.http.put<Pokemon>(this.localpokemonUrl, pokemon, this.httpOptions).pipe(
+    return this.http.put<Pokemon>(this.pokemonsUrls, pokemon, this.httpOptions).pipe(
       tap(_ => this.log(`update pokemon w/ id=${pokemon.id}`)),
       catchError(this.handleError<Pokemon>('updatePokemon'))
     );
@@ -76,14 +75,10 @@ export class PokemonService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
+      console.error(error);
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     }
   }

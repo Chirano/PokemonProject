@@ -11,6 +11,7 @@ import { EvolutionLevelPipe } from './Pipes/evolution-level.pipe';
 import { ColorByTypeDirective } from './Directives/color-by-type.directive';
 import { CreatePokemonComponent } from './create-pokemon/create-pokemon.component';
 import { InMemoryDataService } from './in-memory-data.service';
+import { httpInterceptorProviders } from './httpInterceptorProviders';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

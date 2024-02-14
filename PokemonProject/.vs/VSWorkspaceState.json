@@ -3,14 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\components",
     "\\src\\app\\create-pokemon",
     "\\src\\app\\dashboard",
     "\\src\\app\\Directives",
-    "\\src\\app\\Pipes",
     "\\src\\app\\poke-card",
-    "\\src\\app\\pokemon-list",
     "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\pokemon.service.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

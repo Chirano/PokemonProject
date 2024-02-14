@@ -4,7 +4,7 @@ export interface Pokemon {
   name: string;
   height: number;
   weight: number;
-  types: Type[];
+  types?: string[];
   family: string;
 }
 export function getPokemonImage(pokemon: Pokemon): string {
