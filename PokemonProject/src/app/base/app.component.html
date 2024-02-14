@@ -1,0 +1,17 @@
+<header>
+  <img src="assets/title.png" alt="Logo">
+</header>
+
+Logged in:
+<input type="Radio" name="isAuth" (change)="login(true)" />YES
+<input type="Radio" name="isAuth" (change)="login(false)" />NO
+
+<hr />
+
+<nav>
+  <a routerLink="/pokemons">Pokemons List</a>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/mypokemon">My Pokemon</a>
+</nav>
+
+<router-outlet></router-outlet>

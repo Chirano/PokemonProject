@@ -1,0 +1,13 @@
+
+
+<div *ngIf="pokemons" class="pokemons">
+  <ul class="pokemon-list">
+    <li *ngFor="let pokemon of pokemons" class="pokemon-item">
+      <a routerLink="/pokecard/{{pokemon.id}}">
+        <img [src]="getPokemonImage(pokemon)" alt="Pokemon Image" class="pokemon-image">
+        <div class="pokemon-name">{{ pokemon.name }}</div>
+      </a>
+    </li>
+  </ul>
+</div>
+

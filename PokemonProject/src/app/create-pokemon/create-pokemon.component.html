@@ -1,0 +1,20 @@
+<h2>Create My Pokemon</h2>
+<!-- create-pokemon.component.html -->
+<div>
+  <label>Name: </label>
+  <input type="text" [(ngModel)]="newPokemon.name">
+</div>
+<div>
+  <label>Height: </label>
+  <input type="number" [(ngModel)]="newPokemon.height">
+</div>
+<div>
+  <label>Weight: </label>
+  <input type="number" [(ngModel)]="newPokemon.weight">
+</div>
+<div>
+  <label>Type: </label>
+  <input types="text" [(ngModel)]="newPokemon.types">
+</div>
+<button (click)="onSubmit()">Create Pokemon</button>
+

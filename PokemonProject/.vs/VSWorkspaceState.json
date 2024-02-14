@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\create-pokemon",
+    "\\src\\app\\dashboard",
+    "\\src\\app\\Directives",
+    "\\src\\app\\Pipes",
+    "\\src\\app\\poke-card",
+    "\\src\\app\\pokemon-list",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\pokemon.service.ts",
+  "PreviewInSolutionExplorer": false
+}

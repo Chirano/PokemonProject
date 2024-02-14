@@ -1,0 +1,14 @@
+<h2>POKÉMONS OF THE DAY</h2>
+<div class="pokemons-menu">
+  <div *ngIf="authService.isAuthenticated()">
+    <a *ngFor="let pokemon of pokemons"
+      routerLink="/pokecard/{{pokemon.id}}">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="Image description">
+      {{pokemon.name  | titlecase}}
+    </a>
+  </div>
+  <div *ngIf="!authService.isAuthenticated()">
+    <p>Please log in to access the dashboard.</p>
+  </div>
+</div>
+<router-outlet></router-outlet>

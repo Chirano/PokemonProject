@@ -1,0 +1,33 @@
+header {
+  background-color: #aa0000;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 5px;
+  padding: 13px 13px;
+  text-align: center;
+}
+
+nav a {
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-inline: 5px;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #42545C;
+  border-radius: 4px;
+}
+
+  nav a:hover {
+    color: white;
+    background-color: #409fc9;
+  }
+
+  nav a:active {
+    background-color: black;
+  }
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}

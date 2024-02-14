@@ -1,0 +1,24 @@
+<div *ngIf="pokemon" class="poke-card">
+  <div>
+    <img [src]="getPokemonImage(pokemon)" alt="Pokemon Image" class="pokemon-card_img">
+  </div>
+  <div class="poke-id">
+    # {{pokemon.id}}
+  </div>
+  <div class="poke-name">
+    {{pokemon.name}}
+  </div>
+  <div class="height-weight">
+    <div class="height">Height: {{pokemon.height}}"</div><br>
+    <div class="weight">Weight: {{pokemon.weight}} lbs</div><br>
+  </div>
+  <div class="family">Family: {{pokemon.family}}</div><br />
+  <div class="evolutionlvl" appColorByType="pokemon.weight">Evolution Level: {{pokemon.weight | evolutionLevel}}</div>
+  <div class="poke-card_types">
+    <div class="pokemon-card_type" *ngFor="let type of pokemon.types"
+           [class]="'pokemon-card_type--' + type.toLowerCase()">
+          {{ type }}
+    </div>
+  </div>
+</div>
+
